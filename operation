@@ -1,0 +1,132 @@
+#!/usr/bin/expect 
+
+spawn ./myprogram
+
+send "2\n"
+send "11\n"
+send "11\n"
+send "\n"
+
+send "1\n"
+send "11\n"
+send "11\n"
+send "1\n"
+
+
+#change start date
+send "1\n"
+send "i\n"
+for {set i 0} {$i < 13} {incr i} {
+  send "\033\[3~"
+}
+send "StartCheck"
+for {set i 0} {$i < 7} {incr i} {
+  send "\033\[C"
+}
+send "\033\[3~6"
+send "\033\033\033\033"
+
+
+#change reminder date
+send "1\n"
+send "i\n"
+for {set i 0} {$i < 13} {incr i} {
+  send "\033\[3~"
+}
+send "RemindCheck"
+for {set i 0} {$i < 30} {incr i} {
+  send "\033\[C"
+}
+send "\033\[3~0"
+send "\033\033\033\033"
+
+
+#change taskname
+send "1\n"
+send "i\n"
+for {set i 0} {$i < 13} {incr i} {
+  send "\033\[3~"
+}
+send "NameCheck"
+send "\033\033\033\033"
+
+
+#task to be deleted
+send "1\n"
+send "i\n"
+for {set i 0} {$i < 13} {incr i} {
+  send "\033\[3~"
+}
+send "tmpTask"
+send "\033\033\033\033"
+
+
+#change priority
+send "1\n"
+send "i\n"
+for {set i 0} {$i < 13} {incr i} {
+  send "\033\[3~"
+}
+send "PriorityCheck"
+for {set i 0} {$i < 41} {incr i} {
+  send "\033\[C"
+}
+send "\033\[3~2"
+send "\033\033\033\033"
+
+
+#change category
+send "1\n"
+send "i\n"
+for {set i 0} {$i < 13} {incr i} {
+  send "\033\[3~"
+}
+send "CategoryCheck"
+for {set i 0} {$i < 43} {incr i} {
+  send "\033\[C"
+}
+send "\033\[3~\033\[3~\033\[3~\033\[3~\033\[3~\033\[3~Study"
+send "\033\033\033\033"
+
+
+#edit task
+send "3\n"
+send "3\n"
+send "i\n"
+for {set i 0} {$i < 9} {incr i} {
+  send "\033\[3~"
+}
+send "EditedName"
+send "\033\033\033\033"
+
+
+#delete task
+send "2\n"
+send "4\n"
+
+
+#display by start date
+send "4\n"
+send "startdate\n"
+
+interact
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if ! command -v expect > /dev/null ||! dpkg -s libssl-dev > /dev/null;then
+	echo "Installing necessary packages..."
+    	sudo apt-get install expect -y
+	sudo apt-get install libssl-dev -y
+fi
+
+ 
+! test -f ./myprogram && echo "making..." && make > /dev/null
+
+
+./operation
